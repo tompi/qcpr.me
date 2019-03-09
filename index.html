@@ -25,10 +25,58 @@
 				align-items: center;
 				justify-content: center;
 				flex-direction: column;
+                font-family: "Lato",sans-serif;
 			}
+            input { 
+                font-size: 48px; 
+                border-radius: 24px;
+                max-width: 80%;
+            }
+            input.go { 
+                margin-top: 24px;
+                padding: 6px 48px 6px 48px;
+                font-size: 48px;                    
+                background-color: #00A48B;
+                color: white;
+                border: none;
+            }
+            form {
+                text-align: center;
+            }
     </style>
+        <img alt="Logo" src="logo.svg" style="max-width: 200px;"/>
+    <form onsubmit="return gotoLivefeedback()">
+        <h1>Classroom code:</h1>
+        <input type="text" id="code" autofocus height="20%"/>
+        <h1>Manikin number:</h1>
+        <input type="number" id="manikin" autofocus height="20%"/>
+        <br/>
+        <input type="submit" value="GO" class="go"/>
+    </form>
 
-    <img alt="Logo" src="logo.svg"/>
+    <script>
+        function gotoLivefeedback() {
+            var codeInput = document.getElementById('code');
+            var manikinInput = document.getElementById('manikin');
+
+            if (!codeInput.value) {
+                codeInput.focus();
+                alert('Please input classroom code!');
+                return false;
+            }            
+            if (!manikinInput.value) {
+                manikinInput.focus();
+                alert('Please input manikin number!');
+                return false;
+            }
+            
+            // OK: Goto live feedback page
+             var baseUrl = 'https://eco-dev-aws.contentservice.net/prototype-heartsaver-learner/file/basicLogin.html?classroom=';
+            var url = baseUrl + codeInput.value; // + '-' + manikinInput.value;
+            window.location.replace(url);
+            return false;
+        }
+    </script>
 </body>
 
 </html>
