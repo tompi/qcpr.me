@@ -31,6 +31,7 @@
                 font-size: xx-large; 
                 border-radius: 24px;
                 max-width: 300px;                
+                text-align: center;
             }
             input.go { 
                 margin-top: 24px;
@@ -49,8 +50,10 @@
     <form onsubmit="return gotoLivefeedback()">
         <h1>Classroom code:</h1>
         <input type="text" id="code" autofocus/>
+<!-- Comment out until dk supports cors
         <h1>Manikin number:</h1>
         <input type="number" id="manikin" autofocus/>
+-->
         <br/>
         <input type="submit" value="GO" class="go"/>
     </form>
@@ -65,11 +68,11 @@
                 alert('Please input classroom code!');
                 return false;
             }            
-            if (!manikinInput.value) {
-                manikinInput.focus();
-                alert('Please input manikin number!');
-                return false;
-            }
+//            if (!manikinInput.value) {
+  //              manikinInput.focus();
+    //            alert('Please input manikin number!');
+      //          return false;
+        //    }
             
             // OK: Goto live feedback page
              var baseUrl = 'https://eco-dev-aws.contentservice.net/prototype-heartsaver-learner/file/basicLogin.html?classroom=';
