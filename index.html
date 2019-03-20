@@ -76,7 +76,7 @@
             
             // OK: Goto live feedback page
              var baseUrl = 'https://eco-dev-aws.contentservice.net/prototype-heartsaver-learner/file/basicLogin.html?classroom=';
-            var url = baseUrl + codeInput.value; // + '-' + manikinInput.value;
+            var url = baseUrl + codeInput.value.toLowerCase(); // + '-' + manikinInput.value;
             window.location.replace(url);
             return false;
         }
